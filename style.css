@@ -1,0 +1,208 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #ffffff; /* White container */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 30px;
+}
+
+h1, h2 {
+    color: #0056b3; /* Darker blue for headings */
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #0056b3;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+textarea,
+select {
+    width: calc(100% - 20px);
+    padding: 12px;
+    border: 1px solid #a0d9ff; /* Light blue border */
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #007bff; /* Brighter blue on focus */
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-right: 10px;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Blue button */
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn-edit {
+    background-color: #28a745; /* Green for edit */
+    color: #ffffff;
+}
+
+.btn-edit:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Red for delete */
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden; /* Ensures rounded corners apply to table content */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0f2ff; /* Lighter blue border */
+}
+
+th {
+    background-color: #e0f2ff; /* Light blue header */
+    color: #0056b3;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+tr:hover {
+    background-color: #f5faff; /* Very light blue on hover */
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    /* Tambahan: Izinkan tombol untuk wrap ke baris berikutnya jika tidak cukup ruang */
+    flex-wrap: wrap;
+    /* Tambahan: Sesuaikan penataan tombol jika diperlukan */
+    justify-content: flex-start; /* Default: rata kiri */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        margin-bottom: 15px;
+        border: 1px solid #e0f2ff;
+        border-radius: 8px;
+        padding: 10px;
+    }
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+    td:before {
+        position: absolute;
+        top: 0;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: #0056b3;
+    }
+    td:nth-of-type(1):before { content: "NISN"; }
+    td:nth-of-type(2):before { content: "Nama Lengkap"; }
+    td:nth-of-type(3):before { content: "Jenis Kelamin"; }
+    td:nth-of-type(4):before { content: "Tanggal Lahir"; }
+    td:nth-of-type(5):before { content: "Asal Sekolah"; }
+    td:nth-of-type(6):before { content: "Jurusan"; }
+    td:nth-of-type(7):before { content: "Nomor HP"; }
+    td:nth-of-type(8):before { content: "Alamat"; }
+    td:nth-of-type(9):before { content: "Aksi"; }
+
+    /* Penyesuaian khusus untuk kolom Aksi pada tampilan mobile */
+    td:nth-of-type(9) {
+        text-align: left; /* Mengatur teks/konten di kolom Aksi agar rata kiri */
+        padding-left: 15px; /* Sesuaikan padding agar tidak terlalu mepet */
+    }
+    .actions {
+        justify-content: flex-start; /* Mengatur tombol agar rata kiri di mobile */
+        width: 100%; /* Memastikan div aksi mengambil seluruh lebar yang tersedia */
+    }
+    .btn {
+        padding: 8px 15px; /* Mengurangi padding tombol di mobile */
+        font-size: 14px; /* Mengurangi ukuran font tombol di mobile */
+        margin-right: 5px; /* Mengurangi margin antar tombol */
+    }
+}
